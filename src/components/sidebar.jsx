@@ -19,9 +19,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside class="w-[10%] bg-gray-200 p-4 flex-col">
-      {/* <h2 class="text-lg font-bold">Left Sidebar</h2> */}
-      
+    <aside class="w-full md:w-[10%] bg-gray-200 p-4 flex-col">
       <nav class="flex-grow">
         <ul class="space-y-2">
           {links.map((link) => (

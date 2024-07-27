@@ -1,21 +1,44 @@
 import { Title } from "@solidjs/meta";
-import Sidebar from "../components/sidebar";
+import Sidebar from "~/components/sidebar";
+import RightSidebar from "~/components/rightsidebar";
 import "./index.css";
 
 export default function Home() {
+  const rightSidebarContent = (
+    <>
+      <h2 class="text-lg font-bold text-red-500">Announcement</h2>
+      <div class="border-t border-black mt-2 pt-2">
+        <table class="w-full">
+          <tbody>
+            <tr class="border-b border-black">
+              <td>
+                <a href="#link1" class="text-black hover:underline hover:text-blue-700 block py-2">Link 1</a>
+              </td>
+            </tr>
+            <tr class="border-b border-black">
+              <td>
+                <a href="#link2" class="text-black hover:underline hover:text-blue-700 block py-2">Link 2</a>
+              </td>
+            </tr>
+            <tr class="border-b border-black">
+              <td>
+                <a href="#link3" class="text-black hover:underline hover:text-blue-700 block py-2">Link 3</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+
   return (
     <>
       <Title>Chennai Mathematical Institute</Title>
       
-      <main>
-        <header class="bg-gray-800 text-white p-4 text-center">
-          <h1 class="text-2xl font-bold">Chennai Mathematical Institute</h1>
-        </header>
-        
-        <div class="flex flex-grow" style={{height:"100vh"}}>
-          <Sidebar />
-          
-          <main class="flex-grow bg-gray-100 p-4">
+      <main class="flex flex-col min-h-screen">
+        <div class="flex flex-grow">
+          <Sidebar class="sidebar" />
+          <main class="main-content flex-grow bg-gray-100 p-4">
             <div style={{ fontSize: "1em" }}>
               <p class="text-lg para">
                 Chennai Mathematical Institute is a centre of excellence for teaching and research in the mathematical sciences. Founded in 1989 as part of the SPIC Science Foundation, it has been an autonomous institute since 1996.
@@ -37,16 +60,8 @@ export default function Home() {
               </p>
             </div>
           </main>
-          
-          <aside class="w-[15%] bg-gray-200 p-4">
-            <h2 class="text-lg font-bold">Right Sidebar</h2>
-            <p>Content for the right sidebar.</p>
-          </aside>
+          <RightSidebar class="right-sidebar" content={rightSidebarContent} />
         </div>
-        
-        <footer class="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 text-center">
-          <p>&copy; 2024 Your Company. All rights reserved.</p>
-        </footer>
       </main>
     </>
   );

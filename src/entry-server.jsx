@@ -1,6 +1,7 @@
 // @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server";
-
+import Header from "./components/header";
+import Footer from "./components/footer";
 export default createHandler(() => (
   <StartServer
     document={({ assets, children, scripts }) => (
@@ -12,7 +13,11 @@ export default createHandler(() => (
           {assets}
         </head>
         <body>
-          <div id="app">{children}</div>
+          <Header/>
+          <div id="app">
+            {children}
+          </div>
+          <Footer/>
           {scripts}
         </body>
       </html>

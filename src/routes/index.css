@@ -5,3 +5,64 @@
 p{
     font-family: "Roboto",sans-serif;
 }  
+/* Ensure body takes full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Ensure main takes full height of viewport minus header and footer */
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Flex container for content and sidebars */
+.flex {
+  display: flex;
+  flex-grow: 1; /* Allow container to grow */
+}
+
+/* Sidebar styling */
+.sidebar {
+  flex: 0 0 10%; /* Adjust width as needed */
+  background-color: #f4f4f4;
+}
+
+.right-sidebar {
+  flex: 0 0 15%; /* Adjust width as needed */
+  background-color: #e0e0e0;
+}
+
+/* Main content styling */
+.main-content {
+  flex: 1;
+  overflow: auto; /* Allows scrolling if content is too long */
+  background-color: #f9f9f9;
+}
+
+/* Ensure footer is pushed to the bottom */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .sidebar,
+  .right-sidebar {
+    flex: 0 0 100%; /* Full width on small screens */
+    max-width: 100%;
+  }
+
+  .flex {
+    flex-direction: column; /* Stack sidebars and content vertically on small screens */
+  }
+}
